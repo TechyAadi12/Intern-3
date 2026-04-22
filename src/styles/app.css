@@ -75,6 +75,69 @@ select {
   gap: 8px;
 }
 
+.ops-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(110px, 1fr)) 1.4fr;
+  gap: 8px;
+}
+
+.summary-card {
+  border: 1px solid #c5d8e8;
+  border-radius: 10px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(232, 244, 255, 0.88));
+  padding: 9px 10px;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 120ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.summary-card span {
+  display: block;
+  font-size: 0.76rem;
+  color: #50627a;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.summary-card strong {
+  font-size: 1.28rem;
+  line-height: 1.1;
+  margin-top: 4px;
+  display: block;
+}
+
+.summary-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 20px rgba(15, 27, 45, 0.14);
+  border-color: #7fc4ea;
+}
+
+.summary-card.running {
+  background: linear-gradient(150deg, #f1fff7, #dcfce7);
+}
+
+.summary-card.failed {
+  background: linear-gradient(150deg, #fff4f4, #ffe4e6);
+}
+
+.summary-card.paused {
+  background: linear-gradient(150deg, #fff8ec, #ffedd5);
+}
+
+.summary-meta {
+  border: 1px dashed #b9cede;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.75);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  color: #40536b;
+  font-size: 0.86rem;
+}
+
 .network-banner,
 .warning-banner,
 .error-banner {
@@ -213,6 +276,17 @@ button:focus-visible {
 .queue-list-scroll {
   height: 460px;
   overflow: auto;
+}
+
+.queue-empty {
+  height: 100%;
+  min-height: 130px;
+  display: grid;
+  place-content: center;
+  gap: 5px;
+  text-align: center;
+  color: #4e6178;
+  background: linear-gradient(180deg, rgba(239, 248, 255, 0.65), rgba(255, 255, 255, 0.8));
 }
 
 .queue-list-scroll::-webkit-scrollbar,
@@ -408,6 +482,12 @@ button:disabled {
   border-radius: 8px;
   padding: 8px 9px;
   background: #ffffff;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.timeline-event:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 14px rgba(15, 27, 45, 0.09);
 }
 
 .timeline-event.highlight {
@@ -505,6 +585,14 @@ button:disabled {
 }
 
 @media (max-width: 1080px) {
+  .ops-summary {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .summary-meta {
+    grid-column: 1 / -1;
+  }
+
   .surface-grid {
     grid-template-columns: 1fr;
     grid-template-rows: 360px 320px 260px;

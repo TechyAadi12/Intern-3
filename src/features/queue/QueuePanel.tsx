@@ -118,9 +118,16 @@ export const QueuePanel = () => {
           <span>Updated</span>
         </div>
         <div className="queue-list queue-list-scroll">
-          {visibleItems.map((item) => (
-            <QueueRow key={item.id} item={item} selected={item.id === selectedQueueId} onSelect={selectQueueItem} />
-          ))}
+          {visibleItems.length > 0 ? (
+            visibleItems.map((item) => (
+              <QueueRow key={item.id} item={item} selected={item.id === selectedQueueId} onSelect={selectQueueItem} />
+            ))
+          ) : (
+            <div className="queue-empty">
+              <strong>No queue items match these filters.</strong>
+              <span>Try clearing search or switching status filter.</span>
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@
 import { CommandPalette } from "../features/common/CommandPalette";
 import { ConfirmDialog } from "../features/common/ConfirmDialog";
 import { NetworkBanner } from "../features/common/NetworkBanner";
+import { OpsSummaryBar } from "../features/common/OpsSummaryBar";
 import { DetailInspector } from "../features/details/DetailInspector";
 import { QueuePanel } from "../features/queue/QueuePanel";
 import { TimelinePanel } from "../features/timeline/TimelinePanel";
@@ -30,10 +31,11 @@ export const AppShell = () => {
     <main className="app-shell">
       <header className="topbar">
         <h1>Ops Cockpit</h1>
-        <p>Monitor to Inspect to Act to Verify</p>
+        <p>Monitor to Inspect to Act to Verify | Command Palette: Ctrl/Cmd + K</p>
       </header>
 
       <NetworkBanner />
+      <OpsSummaryBar />
 
       <div className="surface-grid">
         <QueuePanel />
